@@ -6,27 +6,13 @@
     </linearGradient>
   </defs>
   
-  <!-- Background rounded square -->
-  <rect x="32" y="32" width="448" height="448" rx="96" fill="url(#bgGradient)"/>
+  <!-- Full background -->
+  <rect width="512" height="512" fill="url(#bgGradient)"/>
   
-  <!-- Grid of stacked items (3x3 grid representing inventory) -->
+  <!-- Large bold S lettermark -->
   <g transform="translate(256, 256)">
-    <!-- Stack 1: Bottom layer (darker/back) -->
-    <rect x="-100" y="-40" width="70" height="70" rx="12" fill="white" opacity="0.25"/>
-    <rect x="-10" y="-40" width="70" height="70" rx="12" fill="white" opacity="0.25"/>
-    <rect x="80" y="-40" width="70" height="70" rx="12" fill="white" opacity="0.25"/>
-    
-    <!-- Stack 2: Middle layer -->
-    <rect x="-100" y="50" width="70" height="70" rx="12" fill="white" opacity="0.5"/>
-    <rect x="-10" y="50" width="70" height="70" rx="12" fill="white" opacity="0.5"/>
-    <rect x="80" y="50" width="70" height="70" rx="12" fill="white" opacity="0.5"/>
-    
-    <!-- Stack 3: Top layer (brightest/front) -->
-    <rect x="-100" y="140" width="70" height="70" rx="12" fill="white" opacity="0.85" stroke="white" stroke-width="3"/>
-    <rect x="-10" y="140" width="70" height="70" rx="12" fill="white" stroke="white" stroke-width="3"/>
-    <rect x="80" y="140" width="70" height="70" rx="12" fill="white" opacity="0.85" stroke="white" stroke-width="3"/>
-    
-    <!-- Accent checkmark on center item (inventory tracked) -->
-    <path d="M 5 165 L 20 180 L 50 150" fill="none" stroke="#0071e3" stroke-width="8" stroke-linecap="round" stroke-linejoin="round"/>
+    <path d="M 100 -130 L -50 -130 C -90 -130 -120 -100 -120 -60 C -120 -20 -90 10 -50 10 L 50 10 C 75 10 90 25 90 50 C 90 75 75 90 50 90 L -100 90 L -100 150 L 50 150 C 90 150 120 120 120 80 C 120 40 90 10 50 10 L -50 10 C -75 10 -90 -5 -90 -30 C -90 -55 -75 -70 -50 -70 L 100 -70 Z" 
+          fill="white" 
+          stroke="none"/>
   </g>
 </svg>

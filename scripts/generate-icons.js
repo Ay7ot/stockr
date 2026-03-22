@@ -28,12 +28,13 @@ const SVG_PATH = path.join(__dirname, '../public/logo.svg');
 const PUBLIC_DIR = path.join(__dirname, '../public');
 
 // Icon sizes needed for PWA and favicons
+// iOS rounds the icons automatically, so no padding needed
 const ICONS = [
-  { name: 'favicon-16x16.png', size: 16, padding: 1 },
-  { name: 'favicon-32x32.png', size: 32, padding: 2 },
-  { name: 'apple-touch-icon.png', size: 180, padding: 18 },
-  { name: 'icon-192.png', size: 192, padding: 19 },
-  { name: 'icon-512.png', size: 512, padding: 51 },
+  { name: 'favicon-16x16.png', size: 16, padding: 0 },
+  { name: 'favicon-32x32.png', size: 32, padding: 0 },
+  { name: 'apple-touch-icon.png', size: 180, padding: 0 },
+  { name: 'icon-192.png', size: 192, padding: 0 },
+  { name: 'icon-512.png', size: 512, padding: 0 },
 ];
 
 async function generateIcons() {
@@ -50,27 +51,40 @@ async function generateIcons() {
   for (const icon of ICONS) {
     const outputPath = path.join(PUBLIC_DIR, icon.name);
     
-    // Calculate inner size (with padding)
-    const innerSize = icon.size - (icon.padding * 2);
-    
     try {
-      await sharp(svgBuffer)
-        .resize(innerSize, innerSize, {
-          fit: 'contain',
-          background: { r: 0, g: 113, b: 227, alpha: 1 } // #0071e3 brand blue
-        })
-        .extend({
-          top: icon.padding,
-          bottom: icon.padding,
-          left: icon.padding,
-          right: icon.padding,
-          background: { r: 0, g: 113, b: 227, alpha: 1 }
-        })
-        .png({
-          compressionLevel: 9,
-          quality: 100,
-        })
-        .toFile(outputPath);
+      if (icon.padding === 0) {
+        // No padding - fill entire icon space
+        await sharp(svgBuffer)
+          .resize(icon.size, icon.size, {
+            fit: 'cover',
+            position: 'center'
+          })
+          .png({
+            compressionLevel: 9,
+            quality: 100,
+          })
+          .toFile(outputPath);
+      } else {
+        // With padding
+        const innerSize = icon.size - (icon.padding * 2);
+        await sharp(svgBuffer)
+          .resize(innerSize, innerSize, {
+            fit: 'contain',
+            background: { r: 0, g: 113, b: 227, alpha: 1 }
+          })
+          .extend({
+            top: icon.padding,
+            bottom: icon.padding,
+            left: icon.padding,
+            right: icon.padding,
+            background: { r: 0, g: 113, b: 227, alpha: 1 }
+          })
+          .png({
+            compressionLevel: 9,
+            quality: 100,
+          })
+          .toFile(outputPath);
+      }
 
       console.log(`  ✅ ${icon.name} (${icon.size}x${icon.size})`);
     } catch (error) {
@@ -78,20 +92,8 @@ async function generateIcons() {
     }
   }
 
-  // Generate ICO file for older browsers (multi-resolution)
+  // Generate ICO file for older browsers
   try {
-    const ico16 = await sharp(svgBuffer)
-      .resize(16, 16, { fit: 'contain', background: { r: 0, g: 113, b: 227, alpha: 1 } })
-      .extend({ top: 1, bottom: 1, left: 1, right: 1, background: { r: 0, g: 113, b: 227, alpha: 1 } })
-      .toBuffer();
-    
-    const ico32 = await sharp(svgBuffer)
-      .resize(32, 32, { fit: 'contain', background: { r: 0, g: 113, b: 227, alpha: 1 } })
-      .extend({ top: 2, bottom: 2, left: 2, right: 2, background: { r: 0, g: 113, b: 227, alpha: 1 } })
-      .toBuffer();
-    
-    // Write individual PNGs - favicon.ico generation requires additional packages
-    // For now, we'll copy the 32x32 as the favicon.ico equivalent
     fs.copyFileSync(path.join(PUBLIC_DIR, 'favicon-32x32.png'), path.join(PUBLIC_DIR, 'favicon.ico'));
     console.log(`  ✅ favicon.ico (copied from 32x32)`);
   } catch (error) {

@@ -3,8 +3,8 @@
 /* Stockr Design System v1.0 */
 :root {
   /* Neutrals - Ink Scale */
-  --ink-0:   #ffffff;
-  --ink-50:  #f5f5f7;
+  --ink-0: #ffffff;
+  --ink-50: #f5f5f7;
   --ink-100: #e8e8ed;
   --ink-200: #d1d1d6;
   --ink-300: #aeaeb2;
@@ -16,27 +16,27 @@
   --ink-900: #0a0a0c;
 
   /* Brand Colors */
-  --blue:        #0071e3;
-  --blue-light:  #e8f1fc;
-  --blue-dark:   #004ea8;
-  --green:       #30d158;
+  --blue: #0071e3;
+  --blue-light: #e8f1fc;
+  --blue-dark: #004ea8;
+  --green: #30d158;
   --green-light: #e4f9eb;
-  --red:         #ff3b30;
-  --red-light:   #fff0ef;
-  --amber:       #ff9f0a;
+  --red: #ff3b30;
+  --red-light: #fff0ef;
+  --amber: #ff9f0a;
   --amber-light: #fff5e6;
-  --purple:      #bf5af2;
-  --purple-light:#f5eafd;
+  --purple: #bf5af2;
+  --purple-light: #f5eafd;
 
   /* Semantic Tokens */
-  --bg:             var(--ink-50);
-  --surface:        var(--ink-0);
-  --border:         var(--ink-100);
-  --border-strong:  var(--ink-200);
-  --text-primary:   var(--ink-800);
+  --bg: var(--ink-50);
+  --surface: var(--ink-0);
+  --border: var(--ink-100);
+  --border-strong: var(--ink-200);
+  --text-primary: var(--ink-800);
   --text-secondary: var(--ink-500);
-  --text-tertiary:  var(--ink-300);
-  --accent:         var(--blue);
+  --text-tertiary: var(--ink-300);
+  --accent: var(--blue);
 
   /* Border Radius */
   --r-xs: 6px;
@@ -46,35 +46,35 @@
   --r-xl: 28px;
 
   /* Shadows */
-  --shadow-xs: 0 1px 2px rgba(0,0,0,.05);
-  --shadow-sm: 0 1px 4px rgba(0,0,0,.06), 0 2px 8px rgba(0,0,0,.04);
-  --shadow-md: 0 4px 16px rgba(0,0,0,.08), 0 1px 3px rgba(0,0,0,.04);
-  --shadow-lg: 0 12px 40px rgba(0,0,0,.12), 0 2px 8px rgba(0,0,0,.06);
+  --shadow-xs: 0 1px 2px rgba(0, 0, 0, 0.05);
+  --shadow-sm: 0 1px 4px rgba(0, 0, 0, 0.06), 0 2px 8px rgba(0, 0, 0, 0.04);
+  --shadow-md: 0 4px 16px rgba(0, 0, 0, 0.08), 0 1px 3px rgba(0, 0, 0, 0.04);
+  --shadow-lg: 0 12px 40px rgba(0, 0, 0, 0.12), 0 2px 8px rgba(0, 0, 0, 0.06);
 
   /* Type Scale */
-  --text-xs:  11px;
-  --text-sm:  13px;
-  --text-base:15px;
-  --text-md:  17px;
-  --text-lg:  20px;
-  --text-xl:  24px;
+  --text-xs: 11px;
+  --text-sm: 13px;
+  --text-base: 15px;
+  --text-md: 17px;
+  --text-lg: 20px;
+  --text-xl: 24px;
   --text-2xl: 30px;
   --text-3xl: 38px;
 
   /* Spacing (4px grid) */
-  --space-1:  4px;
-  --space-2:  8px;
-  --space-3:  12px;
-  --space-4:  16px;
-  --space-5:  20px;
-  --space-6:  24px;
-  --space-8:  32px;
+  --space-1: 4px;
+  --space-2: 8px;
+  --space-3: 12px;
+  --space-4: 16px;
+  --space-5: 20px;
+  --space-6: 24px;
+  --space-8: 32px;
   --space-10: 40px;
   --space-12: 48px;
   --space-16: 64px;
 
   /* Motion */
-  --ease: cubic-bezier(.25,.46,.45,.94);
+  --ease: cubic-bezier(0.25, 0.46, 0.45, 0.94);
   --duration-fast: 120ms;
   --duration-base: 220ms;
   --duration-slow: 380ms;
@@ -92,8 +92,8 @@
 
 @theme inline {
   /* Colors */
-  --color-ink-0:   var(--ink-0);
-  --color-ink-50:  var(--ink-50);
+  --color-ink-0: var(--ink-0);
+  --color-ink-50: var(--ink-50);
   --color-ink-100: var(--ink-100);
   --color-ink-200: var(--ink-200);
   --color-ink-300: var(--ink-300);
@@ -104,27 +104,27 @@
   --color-ink-800: var(--ink-800);
   --color-ink-900: var(--ink-900);
 
-  --color-blue:        var(--blue);
-  --color-blue-light:  var(--blue-light);
-  --color-blue-dark:   var(--blue-dark);
-  --color-green:       var(--green);
+  --color-blue: var(--blue);
+  --color-blue-light: var(--blue-light);
+  --color-blue-dark: var(--blue-dark);
+  --color-green: var(--green);
   --color-green-light: var(--green-light);
-  --color-red:         var(--red);
-  --color-red-light:   var(--red-light);
-  --color-amber:       var(--amber);
+  --color-red: var(--red);
+  --color-red-light: var(--red-light);
+  --color-amber: var(--amber);
   --color-amber-light: var(--amber-light);
-  --color-purple:      var(--purple);
-  --color-purple-light:var(--purple-light);
+  --color-purple: var(--purple);
+  --color-purple-light: var(--purple-light);
 
   /* Semantic */
-  --color-bg:             var(--bg);
-  --color-surface:        var(--surface);
-  --color-border:         var(--border);
-  --color-border-strong:  var(--border-strong);
-  --color-text-primary:   var(--text-primary);
+  --color-bg: var(--bg);
+  --color-surface: var(--surface);
+  --color-border: var(--border);
+  --color-border-strong: var(--border-strong);
+  --color-text-primary: var(--text-primary);
   --color-text-secondary: var(--text-secondary);
-  --color-text-tertiary:  var(--text-tertiary);
-  --color-accent:         var(--accent);
+  --color-text-tertiary: var(--text-tertiary);
+  --color-accent: var(--accent);
 
   /* Fonts */
   --font-sans: var(--font-dm-sans);
@@ -190,7 +190,7 @@ a {
 .btn-primary {
   background: var(--blue);
   color: white;
-  box-shadow: 0 1px 3px rgba(0,113,227,.3);
+  box-shadow: 0 1px 3px rgba(0, 113, 227, 0.3);
 }
 
 .btn-primary:hover {
@@ -293,12 +293,14 @@ a {
   color: var(--ink-800);
   background: var(--ink-0);
   outline: none;
-  transition: border-color var(--duration-fast), box-shadow var(--duration-fast);
+  transition:
+    border-color var(--duration-fast),
+    box-shadow var(--duration-fast);
 }
 
 .input:focus {
   border-color: var(--blue);
-  box-shadow: 0 0 0 3px rgba(0,113,227,.15);
+  box-shadow: 0 0 0 3px rgba(0, 113, 227, 0.15);
 }
 
 .input::placeholder {
@@ -315,7 +317,7 @@ a {
 }
 
 .input-error:focus {
-  box-shadow: 0 0 0 3px rgba(255,59,48,.15);
+  box-shadow: 0 0 0 3px rgba(255, 59, 48, 0.15);
 }
 
 .error-msg {
@@ -388,7 +390,7 @@ a {
 
 .chip.active {
   background: var(--blue-light);
-  border-color: rgba(0,113,227,.3);
+  border-color: rgba(0, 113, 227, 0.3);
   color: var(--blue);
 }
 
@@ -578,7 +580,9 @@ a {
   font-size: 14px;
   font-weight: 400;
   color: var(--text-secondary);
-  transition: background 0.12s, color 0.12s;
+  transition:
+    background 0.12s,
+    color 0.12s;
   cursor: pointer;
   margin-bottom: 1px;
   -webkit-tap-highlight-color: transparent;
@@ -711,12 +715,16 @@ a {
   padding: 7px 10px;
   flex: 1;
   max-width: 320px;
-  transition: background 0.15s, box-shadow 0.15s;
+  transition:
+    background 0.15s,
+    box-shadow 0.15s;
 }
 
 .search-box:focus-within {
   background: var(--surface);
-  box-shadow: 0 0 0 2px var(--blue), var(--shadow-sm);
+  box-shadow:
+    0 0 0 2px var(--blue),
+    var(--shadow-sm);
 }
 
 .search-box input {
@@ -846,7 +854,9 @@ a {
   position: relative;
   overflow: hidden;
   cursor: default;
-  transition: box-shadow 0.2s, transform 0.2s;
+  transition:
+    box-shadow 0.2s,
+    transform 0.2s;
   -webkit-tap-highlight-color: transparent;
 }
 
@@ -868,7 +878,7 @@ a {
 }
 
 .kpi-card::before {
-  content: '';
+  content: "";
   position: absolute;
   top: 0;
   left: 0;
@@ -1511,7 +1521,9 @@ td {
   align-items: center;
   justify-content: center;
   box-shadow: 0 4px 20px rgba(0, 113, 227, 0.45);
-  transition: transform 0.12s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 0.12s;
+  transition:
+    transform 0.12s cubic-bezier(0.34, 1.56, 0.64, 1),
+    box-shadow 0.12s;
   border: none;
   cursor: pointer;
   -webkit-tap-highlight-color: transparent;
@@ -1902,7 +1914,9 @@ td {
   border: 1px solid var(--border);
   border-radius: var(--r-sm);
   cursor: pointer;
-  transition: border-color 0.15s ease, box-shadow 0.15s ease;
+  transition:
+    border-color 0.15s ease,
+    box-shadow 0.15s ease;
   min-height: 40px;
 }
 
@@ -1977,7 +1991,9 @@ td {
   border: 1px solid var(--border);
   border-radius: var(--r-sm);
   outline: none;
-  transition: border-color 0.15s ease, box-shadow 0.15s ease;
+  transition:
+    border-color 0.15s ease,
+    box-shadow 0.15s ease;
 }
 
 .select-search-input::placeholder {
@@ -2015,7 +2031,8 @@ td {
 }
 
 @keyframes pulse {
-  0%, 100% {
+  0%,
+  100% {
     opacity: 1;
   }
   50% {
