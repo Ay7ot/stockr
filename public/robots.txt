@@ -1,0 +1,8 @@
+# Robots.txt for Stockr
+# This is a private business application
+
+User-agent: *
+Disallow: /
+
+# Block all search engines from indexing this application
+# as it contains sensitive business data
