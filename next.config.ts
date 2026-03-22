@@ -1,4 +1,5 @@
 import type { NextConfig } from "next";
+import withPWA from "next-pwa";
 
 /** Exact host from env (when set at build time). */
 function supabaseHostFromEnv():
@@ -45,4 +46,13 @@ const nextConfig: NextConfig = {
   },
 };
 
-export default nextConfig;
+const pwaConfig = withPWA({
+  dest: "public",
+  register: true,
+  skipWaiting: true,
+  disable: process.env.NODE_ENV === "development",
+  reloadOnOnline: true,
+});
+
+// @ts-ignore - next-pwa types incompatible with Next.js 16
+export default pwaConfig(nextConfig);

@@ -205,10 +205,20 @@ async function generateOGImage(svgBuffer, outputPath) {
   `;
   
   const taglineSvg = `
-    <svg width="500" height="60" xmlns="http://www.w3.org/2000/svg">
-      <text x="0" y="35" font-family="DM Sans, -apple-system, BlinkMacSystemFont, sans-serif" 
+    <svg width="600" height="100" xmlns="http://www.w3.org/2000/svg">
+      <text x="0" y="30" font-family="DM Sans, -apple-system, BlinkMacSystemFont, sans-serif" 
             font-size="24" font-weight="400" fill="#8e8e93">
         Smart tracking for gadget businesses
+      </text>
+    </svg>
+  `;
+  
+  const ctaSvg = `
+    <svg width="220" height="70" xmlns="http://www.w3.org/2000/svg">
+      <rect width="220" height="56" rx="12" fill="#0071e3"/>
+      <text x="110" y="36" font-family="DM Sans, -apple-system, BlinkMacSystemFont, sans-serif" 
+            font-size="20" font-weight="600" fill="white" text-anchor="middle">
+        Start Tracking →
       </text>
     </svg>
   `;
@@ -219,14 +229,15 @@ async function generateOGImage(svgBuffer, outputPath) {
       { input: gradientOverlay, top: 0, left: 0, blend: 'over' },
       { input: accentBar, top: 0, left: 0 },
       { input: logoBuffer, top: (height - logoSize) / 2, left: 750 },
-      { input: Buffer.from(titleSvg), top: 200, left: 80 },
-      { input: Buffer.from(taglineSvg), top: 340, left: 80 }
+      { input: Buffer.from(titleSvg), top: 160, left: 80 },
+      { input: Buffer.from(taglineSvg), top: 300, left: 80 },
+      { input: Buffer.from(ctaSvg), top: 410, left: 80 }
     ])
     .png({
       compressionLevel: 9,
       quality: 85,
-      palette: true, // Use palette-based PNG for smaller file size
-      effort: 10 // Maximum compression effort
+      palette: true,
+      effort: 10
     })
     .toFile(outputPath);
 }

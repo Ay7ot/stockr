@@ -3,6 +3,8 @@ import { DM_Sans, DM_Mono } from "next/font/google";
 import "./globals.css";
 import { AuthProvider } from "@/components/auth-provider";
 import { QueryProvider } from "@/components/query-provider";
+import { PWAUpdateNotifier } from "@/components/pwa-update-notifier";
+import { PWAInstallPrompt } from "@/components/pwa-install-prompt";
 
 export const viewport: Viewport = {
   width: "device-width",
@@ -61,7 +63,7 @@ export const metadata: Metadata = {
     type: "website",
     locale: "en_US",
     url: "/",
-    title: "Stockr — Smart Inventory & Sales Tracking",
+    title: "Stockr — Smart Inventory & Sales Tracking for Gadget Businesses",
     description: "Track inventory, record sales, and view daily reports for your gadget business. Mobile-first, intuitive, and powerful.",
     siteName: "Stockr",
     images: [
@@ -75,7 +77,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Stockr — Smart Inventory & Sales Tracking",
+    title: "Stockr — Smart Inventory & Sales Tracking for Gadget Businesses",
     description: "Track inventory, record sales, and view daily reports for your gadget business.",
     images: ["/og-image.png"],
     creator: "@stockr",
@@ -191,6 +193,8 @@ export default function RootLayout({
             {children}
           </AuthProvider>
         </QueryProvider>
+        <PWAInstallPrompt />
+        <PWAUpdateNotifier />
       </body>
     </html>
   );
