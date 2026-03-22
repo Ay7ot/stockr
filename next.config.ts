@@ -30,6 +30,7 @@ const supabaseWildcardPattern = {
 };
 
 const nextConfig: NextConfig = {
+  turbopack: {},
   experimental: {
     optimizePackageImports: ["@tanstack/react-query"],
   },

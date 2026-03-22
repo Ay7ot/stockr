@@ -17,8 +17,8 @@ export function PWAInstallPrompt() {
   useEffect(() => {
     const isIOSDevice = /iPad|iPhone|iPod/.test(navigator.userAgent)
     const isAndroidDevice = /Android/.test(navigator.userAgent)
-    const isInStandaloneMode = window.matchMedia('(display-mode: standalone)').matches || 
-                               (window.navigator as any).standalone === true
+    const isInStandaloneMode = window.matchMedia('(display-mode: standalone)').matches ||
+      (window.navigator as any).standalone === true
 
     setIsIOS(isIOSDevice)
     setIsAndroid(isAndroidDevice)
@@ -102,7 +102,7 @@ export function PWAInstallPrompt() {
               <div className="pwa-install-step">
                 <div className="pwa-install-step-num">1</div>
                 <div className="pwa-install-step-text">
-                  Tap the <strong>Share</strong> button 
+                  Tap the <strong>Share</strong> button
                   <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" style={{ display: 'inline-block', marginLeft: '4px', verticalAlign: 'middle' }}>
                     <path d="M4 12v8a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-8" />
                     <polyline points="16 6 12 2 8 6" />

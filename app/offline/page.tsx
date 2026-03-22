@@ -1,20 +1,19 @@
-import { Metadata } from 'next'
+'use client'
 
-export const metadata: Metadata = {
-  title: "Offline",
-  description: "You are currently offline. Please check your internet connection.",
-}
+import { useRouter } from 'next/navigation'
 
 export default function OfflinePage() {
+  const router = useRouter()
+
   return (
-    <div className="pwa-container" style={{ 
-      display: 'flex', 
-      alignItems: 'center', 
+    <div className="pwa-container" style={{
+      display: 'flex',
+      alignItems: 'center',
       justifyContent: 'center',
       padding: '32px 16px'
     }}>
-      <div style={{ 
-        maxWidth: '400px', 
+      <div style={{
+        maxWidth: '400px',
         textAlign: 'center',
         display: 'flex',
         flexDirection: 'column',
@@ -37,7 +36,7 @@ export default function OfflinePage() {
             <line x1="1" y1="1" x2="23" y2="23" />
           </svg>
         </div>
-        
+
         <div>
           <h1 style={{
             fontSize: 'var(--text-xl)',
@@ -56,8 +55,8 @@ export default function OfflinePage() {
           </p>
         </div>
 
-        <button 
-          onClick={() => window.location.reload()} 
+        <button
+          onClick={() => router.refresh()}
           className="btn-primary"
           style={{ marginTop: '12px' }}
         >
