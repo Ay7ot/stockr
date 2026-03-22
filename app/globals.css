@@ -84,6 +84,10 @@
   --safe-bottom: env(safe-area-inset-bottom, 0px);
   --safe-left: env(safe-area-inset-left, 0px);
   --safe-right: env(safe-area-inset-right, 0px);
+
+  /* PWA Safe Area combined values */
+  --pwa-safe-top: max(env(safe-area-inset-top, 0px), 20px);
+  --pwa-safe-bottom: max(env(safe-area-inset-bottom, 0px), 16px);
 }
 
 @theme inline {
@@ -2359,4 +2363,159 @@ button.tab {
 .password-toggle:disabled {
   opacity: 0.5;
   cursor: not-allowed;
+}
+
+/* ============================================ */
+/* PWA SAFE AREA UTILITIES                      */
+/* For full-screen PWA experience with notches  */
+/* ============================================ */
+
+/* Safe area padding utilities */
+.pt-safe-top {
+  padding-top: var(--safe-top);
+}
+
+.pb-safe-bottom {
+  padding-bottom: var(--safe-bottom);
+}
+
+.pl-safe-left {
+  padding-left: var(--safe-left);
+}
+
+.pr-safe-right {
+  padding-right: var(--safe-right);
+}
+
+/* Combined safe area padding */
+.p-safe {
+  padding-top: var(--safe-top);
+  padding-bottom: var(--safe-bottom);
+  padding-left: var(--safe-left);
+  padding-right: var(--safe-right);
+}
+
+.px-safe {
+  padding-left: var(--safe-left);
+  padding-right: var(--safe-right);
+}
+
+.py-safe {
+  padding-top: var(--safe-top);
+  padding-bottom: var(--safe-bottom);
+}
+
+/* Minimum safe area padding (for PWA with fallback) */
+.pt-pwa-safe {
+  padding-top: var(--pwa-safe-top);
+}
+
+.pb-pwa-safe {
+  padding-bottom: var(--pwa-safe-bottom);
+}
+
+/* Safe area margin utilities */
+.mt-safe-top {
+  margin-top: var(--safe-top);
+}
+
+.mb-safe-bottom {
+  margin-bottom: var(--safe-bottom);
+}
+
+/* Full screen PWA container */
+.pwa-container {
+  min-height: 100vh;
+  min-height: 100dvh;
+  min-height: -webkit-fill-available;
+  display: flex;
+  flex-direction: column;
+}
+
+/* PWA header that respects status bar */
+.pwa-header {
+  padding-top: var(--safe-top);
+  padding-left: var(--safe-left);
+  padding-right: var(--safe-right);
+}
+
+/* PWA bottom navigation that respects home indicator */
+.pwa-bottom-nav {
+  padding-bottom: var(--safe-bottom);
+  padding-left: var(--safe-left);
+  padding-right: var(--safe-right);
+}
+
+/* PWA safe area aware fixed positioning */
+.fixed-safe-top {
+  position: fixed;
+  top: var(--safe-top);
+  left: 0;
+  right: 0;
+}
+
+.fixed-safe-bottom {
+  position: fixed;
+  bottom: var(--safe-bottom);
+  left: 0;
+  right: 0;
+}
+
+/* PWA content area with safe area consideration */
+.pwa-content {
+  flex: 1;
+  overflow-y: auto;
+  overflow-x: hidden;
+  -webkit-overflow-scrolling: touch;
+  padding-left: var(--safe-left);
+  padding-right: var(--safe-right);
+}
+
+/* Standalone PWA specific adjustments */
+@media (display-mode: standalone) {
+  /* Hide scrollbars in standalone PWA mode for cleaner look */
+  ::-webkit-scrollbar {
+    width: 0px;
+    background: transparent;
+  }
+
+  /* Add extra bottom padding for FAB in standalone mode */
+  .fab-standalone {
+    bottom: calc(56px + var(--safe-bottom) + 16px);
+  }
+}
+
+/* iOS specific fixes for PWA */
+@supports (-webkit-touch-callout: none) {
+  /* iOS only: prevent callout menu, but allow text selection */
+  .pwa-content {
+    -webkit-user-select: text;
+    user-select: text;
+  }
+
+  /* Prevent rubber-band scrolling at edges */
+  html {
+    overscroll-behavior-y: none;
+  }
+}
+
+/* Prevent pull-to-refresh in PWA mode */
+@media (display-mode: standalone), (display-mode: fullscreen) {
+  body {
+    overscroll-behavior-y: none;
+  }
+}
+
+/* PWA standalone mode status bar adjustment */
+@supports (padding-top: env(safe-area-inset-top)) {
+  .status-bar-aware {
+    padding-top: max(env(safe-area-inset-top), 20px);
+  }
+}
+
+/* Bottom home indicator aware */
+@supports (padding-bottom: env(safe-area-inset-bottom)) {
+  .home-indicator-aware {
+    padding-bottom: max(env(safe-area-inset-bottom), 16px);
+  }
 }

@@ -1,8 +1,20 @@
-import type { Metadata } from "next";
+import type { Metadata, Viewport } from "next";
 import { DM_Sans, DM_Mono } from "next/font/google";
 import "./globals.css";
 import { AuthProvider } from "@/components/auth-provider";
 import { QueryProvider } from "@/components/query-provider";
+
+export const viewport: Viewport = {
+  width: "device-width",
+  initialScale: 1,
+  maximumScale: 1,
+  userScalable: false,
+  viewportFit: "cover",
+  themeColor: [
+    { media: "(prefers-color-scheme: light)", color: "#ffffff" },
+    { media: "(prefers-color-scheme: dark)", color: "#0a0a0c" },
+  ],
+};
 
 const dmSans = DM_Sans({
   variable: "--font-dm-sans",
@@ -84,8 +96,9 @@ export const metadata: Metadata = {
     icon: [
       { url: "/favicon-16x16.png", sizes: "16x16", type: "image/png" },
       { url: "/favicon-32x32.png", sizes: "32x32", type: "image/png" },
+      { url: "/icon-192.png", sizes: "192x192", type: "image/png" },
       { url: "/icon-512.png", sizes: "512x512", type: "image/png" },
-      { url: "/favicon.ico", sizes: "any" },
+      { url: "/favicon.ico", sizes: "48x48" },
     ],
     apple: [
       { url: "/apple-touch-icon.png", sizes: "180x180", type: "image/png" },
@@ -94,24 +107,34 @@ export const metadata: Metadata = {
       {
         rel: "mask-icon",
         url: "/icon-512.png",
+        color: "#0071e3",
       },
     ],
   },
   manifest: "/manifest.json",
   appleWebApp: {
     capable: true,
-    statusBarStyle: "default",
+    statusBarStyle: "black-translucent",
     title: "Stockr",
+    startupImage: [
+      {
+        url: "/apple-touch-icon.png",
+        media: "(device-width: 768px) and (device-height: 1024px)",
+      },
+    ],
   },
   applicationName: "Stockr",
   category: "business",
   classification: "Business Application",
-  viewport: {
-    width: "device-width",
-    initialScale: 1,
-    maximumScale: 1,
-    userScalable: false,
-    viewportFit: "cover",
+  other: {
+    "mobile-web-app-capable": "yes",
+    "apple-mobile-web-app-capable": "yes",
+    "apple-mobile-web-app-title": "Stockr",
+    "apple-mobile-web-app-status-bar-style": "black-translucent",
+    "theme-color": "#0071e3",
+    "msapplication-TileColor": "#0071e3",
+    "msapplication-TileImage": "/icon-192.png",
+    "msapplication-config": "none",
   },
 };
 
@@ -150,11 +173,12 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className={`${dmSans.variable} ${dmMono.variable}`}
+      className={`${dmSans.variable} ${dmMono.variable} h-full w-full`}
       data-scroll-behavior="smooth"
       suppressHydrationWarning
     >
       <body
+        className="h-full w-full overflow-x-hidden bg-bg text-text-primary antialiased"
         suppressHydrationWarning
         style={{ fontFamily: 'var(--font-dm-sans), system-ui, sans-serif' }}
       >
